@@ -4,15 +4,12 @@ import com.humanoo.data.BaseTest
 import com.humanoo.domain.model.RecipeDomainModel
 import com.humanoo.domain.model.Result
 import com.humanoo.domain.usecases.RecipeUseCases
-import com.humanoo.recipes.model.RecipeData
 import com.humanoo.recipes.presentation.recipe.viewmodel.RecipeViewModel
-import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
@@ -34,33 +31,7 @@ class RecipeViewModelTest :BaseTest(){
     @Mock
     private lateinit var recipeListViewModel: RecipeViewModel
 
-    private val recipeList = listOf(
-        RecipeDomainModel("",
-            ", , , ",
-            "",
-            ""),
-        RecipeDomainModel("",
-            "",
-            "",
-            ""),
-        RecipeDomainModel("",
-            "","",
-            "")
-    )
-
-    private val recipeSearchList = listOf(
-        RecipeDomainModel("",
-            "",
-            "",
-            ""),
-        RecipeDomainModel("",
-            "",
-            "",
-            ""),
-        RecipeDomainModel("",
-            "","",
-            "")
-    )
+    private val recipeList = emptyList<RecipeDomainModel>()
 
 
     @Before
@@ -81,7 +52,7 @@ class RecipeViewModelTest :BaseTest(){
     @Test
     fun loadRecipeSearchListTest_Success() = runBlocking {
         val searchQuery = "qwerty"
-        val result = Result.Success(recipeSearchList)
+        val result = Result.Success(recipeList)
         `when`(useCase.getSearchRecipesList(searchQuery)).thenReturn(result)
         val response = useCase.getSearchRecipesList(searchQuery)
         Assert.assertEquals(result,response)

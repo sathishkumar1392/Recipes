@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: "../common/constants.gradle"
+apply from: "../common/dependencies.gradle"
+android {
+    compileSdkVersion rootProject.compileSdk
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdk
+        targetSdkVersion rootProject.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            // To display log and log interceptor
+            buildConfigField "boolean", "LOG", "false"
+            buildConfigField "boolean", "RETROFIT_LOG_INTERCEPTOR", "false"
+            //*Dev BASE URL
+            buildConfigField "String", "BASE_URL", '"http://www.recipepuppy.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // To display log and log interceptor
+            buildConfigField "boolean", "LOG", "false"
+            buildConfigField "boolean", "RETROFIT_LOG_INTERCEPTOR", "false"
+            // Production BASE URL
+            buildConfigField "String", "BASE_URL", '"http://www.recipepuppy.com/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation kotlinDependencies
+    implementation retrofitDependencies
+    implementation okHttpDependencies
+    implementation koinDependencies
+    implementation coroutinesDependencies
+    implementation unitTestingDependencies
+    implementation instrumentationTestingDependencies
+    implementation project(":domain")
+}

@@ -1,0 +1,110 @@
+apply from: "../common/constants.gradle"
+
+ext {
+    // Kotlin
+    kotlinDependencies = dependencies([
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    ])
+
+    // Android Core
+    androidCoreDependencies = dependencies([
+            appCompat: "androidx.appcompat:appcompat:${rootProject.support_Version}",
+            coreKtx: "androidx.core:core-ktx:${rootProject.core_version}"
+    ])
+
+
+    // MultiDex
+    multiDexDependencies = dependencies([
+            multiDex: "androidx.multidex:multidex:${rootProject.multiDex_Version}",
+            multiDexInstrumentation: "androidx.multidex:multidex-instrumentation:${rootProject.multiDexInstrumentation_Version}"
+    ])
+
+    // Core UI
+    coreUiDependencies = dependencies([
+            recyclerView: "com.android.support:recyclerview-v7:${rootProject.recyclerView_Version}",
+            cardview:"androidx.cardview:cardview:${rootProject.cardview_version}",
+            materialComponents: "com.google.android.material:material:${rootProject.materialDesign_Version}"
+    ])
+
+    // Constraint Layout
+    constraintLayoutDependencies = dependencies([
+            constraintLayout: "androidx.constraintlayout:constraintlayout:${rootProject.constraintlayout_version}",
+    ])
+
+
+    // Navigation
+    navigationDependencies = dependencies([
+            navigationFragmentKtx: "androidx.navigation:navigation-fragment-ktx:${rootProject.nav_version}",
+            navigationUiKtx: "androidx.navigation:navigation-ui-ktx:${rootProject.nav_version}"])
+
+
+    //Koin
+    koinDependencies = dependencies([
+            KoinCore:"org.koin:koin-core:${rootProject.koin_version}",
+            koin:"org.koin:koin-android:${rootProject.koin_version}",
+            koinViewModel:"org.koin:koin-androidx-viewmodel:${rootProject.koin_version}"
+    ])
+
+    // Retrofit
+    retrofitDependencies = dependencies([
+            retrofit: "com.squareup.retrofit2:retrofit:${rootProject.retrofit_version}",
+            retrofitconverter: "com.squareup.retrofit2:converter-gson:${rootProject.retrofit_version}",
+            retrofitJackson: "com.squareup.retrofit2:converter-jackson:${rootProject.retrofit_version}",
+    ])
+
+
+    // OkHttp
+    okHttpDependencies = dependencies([
+            okHttp: "com.squareup.okhttp3:okhttp:${rootProject.okhttp_version}",
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:${rootProject.okhttp_version}"
+    ])
+
+
+    // Lifecycle Annotation Processing
+    lifecycleAnnotationProcessingDependencies = dependencies([
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${rootProject.lifecycle_version}"
+    ])
+
+    // Lifecycle
+    lifecycleDependencies = dependencies([
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel:${rootProject.lifecycle_version}",
+            lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${rootProject.lifecycle_version}"
+    ])
+
+    // Coroutines
+    coroutinesDependencies = dependencies([
+            coroutinescore:"org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.coroutine_version}" ,
+            coroutinesandroid:"org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.coroutine_version}"
+    ])
+
+    // Glide Annotation Processing
+    glideAnnotationProcessingDependencies = dependencies([
+            glideCompiler: "com.github.bumptech.glide:compiler:${rootProject.glide_Version}"
+    ])
+
+    // Glide
+    glideDependencies = dependencies([
+            glide: "com.github.bumptech.glide:glide:${rootProject.glide_Version}",
+            glideOkHttp: "com.github.bumptech.glide:okhttp3-integration:${rootProject.glide_Version}"
+    ])
+
+    // Unit Testing
+    unitTestingDependencies = dependencies([
+            jUnit: "junit:junit:${rootProject.jUnit_Version}",
+            mock_kotlin: "com.nhaarman:mockito-kotlin:${rootProject.mock_kotlin_Version}",
+            mock_core: "org.mockito:mockito-core:${rootProject.mock_core_Version}",
+            coroutine:"org.jetbrains.kotlinx:kotlinx-coroutines-test:${rootProject.test_coroutine_Version}",
+            mockito : "org.mockito:mockito-inline:${rootProject.mockito_version}"
+    ])
+
+    // Instrumentation Testing
+    instrumentationTestingDependencies = dependencies([
+            core_testing: "androidx.arch.core:core-testing:${rootProject.core_testing_version}",
+            runner: "androidx.test.ext:junit:${rootProject.ext_junit_version}",
+            espresso: "androidx.test.espresso:espresso-core:${rootProject.espresso_Version}"
+    ])
+}
+
+private def static dependencies(dependenciesMap) {
+    return dependenciesMap.values()
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <ImageView
+            android:id="@+id/ImgView_Poster"
+            style="@style/RecipePoster"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/str_recipe_details"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_anchorGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/comicDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ImgView_Poster">
+
+            <TextView
+                style="@style/RecipeDetailsTitle"
+                android:text="@string/str_recipe_name" />
+
+            <TextView
+                android:id="@+id/txtView_tittle"
+                style="@style/RecipeDetailsText" />
+
+            <TextView
+                style="@style/RecipeDetailsTitle"
+                android:text="@string/str_ingredients" />
+
+            <TextView
+                android:id="@+id/txtView_ingredient"
+                style="@style/RecipeDetailsText" />
+
+            <TextView
+                style="@style/RecipeDetailsTitle"
+                android:text="@string/str_web_link" />
+
+            <TextView
+                android:id="@+id/txtView_web_link"
+                style="@style/RecipeDetailsText"
+                android:onClick="@{clickListener}"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

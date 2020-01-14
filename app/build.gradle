@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+apply from: "../common/constants.gradle"
+apply from: "../common/dependencies.gradle"
+android {
+    compileSdkVersion rootProject.compileSdk
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.humanoo.recipes"
+        minSdkVersion rootProject.minSdk
+        targetSdkVersion rootProject.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation kotlinDependencies
+    implementation androidCoreDependencies
+    implementation multiDexDependencies
+    implementation coreUiDependencies
+    implementation navigationDependencies
+    kapt lifecycleAnnotationProcessingDependencies
+    implementation lifecycleDependencies
+    implementation constraintLayoutDependencies
+    implementation glideAnnotationProcessingDependencies
+    implementation glideDependencies
+    implementation koinDependencies
+    implementation retrofitDependencies
+    implementation okHttpDependencies
+    implementation coroutinesDependencies
+    implementation unitTestingDependencies
+    implementation instrumentationTestingDependencies
+
+    implementation project (":data")
+    implementation project (":domain")
+    implementation project (":mvvm")
+}

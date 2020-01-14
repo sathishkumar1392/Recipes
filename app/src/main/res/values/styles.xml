@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RecipeDetailsTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/recipe_details_title</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+    </style>
+
+    <style name="RecipeDetailsText" parent="RecipeDetailsTitle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/recipe_details_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">25dp</item>
+        <item name="android:freezesText">true</item>
+    </style>
+
+
+    <style name="RecipePoster">
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:transitionName">@string/str_recipe_transition_poster</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+</resources>

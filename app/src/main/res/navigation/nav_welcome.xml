@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_welcome"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.humanoo.recipes.presentation.splash.SplashFragment"
+        android:label="@string/str_recipe"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_recipeList"
+            app:destination="@id/recipe_list"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/recipe_list"
+        android:name="com.humanoo.recipes.presentation.recipe.RecipesListFragment"
+        android:label="@string/str_recipe_list"
+        tools:layout="@layout/fragment_recipe_list">
+        <action
+            android:id="@+id/action_recipe_list"
+            app:destination="@id/recipe_details"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipe_details"
+        android:name="com.humanoo.recipes.presentation.recipe.RecipeDetailsFragment"
+        android:label="@string/str_recipe_details"
+        tools:layout="@layout/fragment_recipe_details">
+
+        <argument
+            android:name="tittle"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="string" />
+
+        <argument
+            android:name="ingredient"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="string" />
+
+        <argument
+            android:name="image"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="string" />
+
+        <argument
+            android:name="webLink"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_recipe_details"
+            app:destination="@id/recipe_webView"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipe_webView"
+        android:name="com.humanoo.recipes.presentation.recipe.RecipeWebViewFragment"
+        android:label="@string/str_recipe_webView"
+        tools:layout="@layout/fragment_recipe_webview">
+
+        <argument
+            android:name="webLink"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

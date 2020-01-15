@@ -46,7 +46,7 @@ class RecipeRepositoryImplTest:BaseTest() {
     }
 
     @Test
-    fun testRecipeList_Success() {
+    fun getRecipesList_Success() {
         val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
         result.code()
 
@@ -59,7 +59,7 @@ class RecipeRepositoryImplTest:BaseTest() {
     }
 
     @Test
-    fun testRecipeList_Failure() {
+    fun getRecipesListTest_Failure() {
         val result = Result.Error("No Internet connection")
         runBlocking {
             `when`(connectivity.isNetworkAvailable()).thenReturn(false)
@@ -70,7 +70,7 @@ class RecipeRepositoryImplTest:BaseTest() {
 
 
     @Test
-    fun testSearchRecipeList_Success() {
+    fun getSearchRecipesListTest_Success() {
         val searchQuery = "test1"
         val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
         result.code()
@@ -84,7 +84,7 @@ class RecipeRepositoryImplTest:BaseTest() {
     }
 
     @Test
-    fun testSearchRecipeList_Failure() {
+    fun getSearchRecipesListTest_Failure() {
         val searchQuery = ""
         val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
 

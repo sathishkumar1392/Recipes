@@ -49,7 +49,7 @@ class RecipeUseCasesImplTest {
         runBlocking {
             val result = Result.Error("No Internet connection")
             `when`(repo.getRecipesList()).thenReturn(result)
-            val resultInUseCase = Result.Error("No Internet  connection")
+            val resultInUseCase = Result.Error("No Internet connection")
             assertEquals(result, resultInUseCase)
         }
     }

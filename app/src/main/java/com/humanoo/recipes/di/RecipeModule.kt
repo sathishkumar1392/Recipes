@@ -21,7 +21,7 @@ import org.koin.dsl.module
 
 val RecipeModule = module {
 
-    single{RecipeUseCasesImpl(get())}.bind(RecipeUseCases::class)
-    viewModel {RecipeViewModel( get())}
+    single { RecipeUseCasesImpl(get()) }.bind(RecipeUseCases::class)
+    viewModel { RecipeViewModel(get()) }
     factory { RecipeItemRecyclerViewAdapter() }
 }

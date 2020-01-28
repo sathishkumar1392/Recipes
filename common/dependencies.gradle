@@ -23,7 +23,7 @@ ext {
     coreUiDependencies = dependencies([
             recyclerView: "com.android.support:recyclerview-v7:${rootProject.recyclerView_Version}",
             cardview:"androidx.cardview:cardview:${rootProject.cardview_version}",
-            materialComponents: "com.google.android.material:material:${rootProject.materialDesign_Version}"
+            materialComponents: "com.google.android.material:material:${rootProject.materialDesign_Version}",
     ])
 
     // Constraint Layout
@@ -36,6 +36,8 @@ ext {
     navigationDependencies = dependencies([
             navigationFragmentKtx: "androidx.navigation:navigation-fragment-ktx:${rootProject.nav_version}",
             navigationUiKtx: "androidx.navigation:navigation-ui-ktx:${rootProject.nav_version}"])
+
+
 
 
     //Koin
@@ -67,6 +69,7 @@ ext {
 
     // Lifecycle
     lifecycleDependencies = dependencies([
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime:${rootProject.lifecycle_version}",
             lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel:${rootProject.lifecycle_version}",
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${rootProject.lifecycle_version}"
     ])

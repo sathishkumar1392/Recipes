@@ -1,4 +1,4 @@
-package com.humanoo.mvvm
+package com.humanoo.recipes.presentation.recipe.viewmodel.base
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseViewModel : ViewModel() {
 
-    //ERROR message
+    // ERROR message
     val errorMessage: MutableLiveData<String> = MutableLiveData()
     // Loading indicator
     val isLoading = ObservableField(true)

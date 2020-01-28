@@ -19,7 +19,7 @@ import org.koin.core.context.startKoin
  * other components and provides Instance
  */
 
-class RecipeApplication: Application() {
+class RecipeApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         configureDi()

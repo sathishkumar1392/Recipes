@@ -11,10 +11,9 @@ import retrofit2.http.Query
 interface RecipeService {
 
     @GET(EndpointPaths.Recipes.BASE)
-    suspend fun  getRecipeList():Response<RecipesApiResponseModel>
+    suspend fun getRecipeList(): Response<RecipesApiResponseModel>
 
     @GET(EndpointPaths.Recipes.INGREDIENT)
-    suspend fun searchRecipesByIngredient
-                (@Query(EndpointPaths.Params.INGREDIENTS)ingredient :String): Response<RecipesApiResponseModel>
+    suspend fun searchRecipesByIngredient(@Query(EndpointPaths.Params.INGREDIENTS) ingredient: String): Response<RecipesApiResponseModel>
 
 }

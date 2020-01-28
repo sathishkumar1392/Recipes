@@ -1,9 +1,11 @@
 package com.humanoo.recipes.presentation.recipe.adapter
 
-import android.view.View
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.humanoo.recipes.R
 
 /*
@@ -26,5 +28,27 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String? = null) {
     imageUrl?.let {
         Glide.with(view.context).load(imageUrl).placeholder(R.drawable.ic_launcher_background).into(view)
     }
+}
 
+@BindingAdapter("imageFromUrl", "withCrossFade", "requestListener", requireAll = false)
+fun bindImageFromUrl(
+    view: ImageView,
+    imageUrl: String?,
+    withCrossFade: Boolean = true,
+    requestListener: RequestListener<Drawable>?
+) {
+    if (!imageUrl.isNullOrEmpty()) {
+        val transitionOptions = if (withCrossFade) {
+            DrawableTransitionOptions().crossFade()
+        } else {
+            DrawableTransitionOptions()
+        }
+        val transition = Glide.with(view.context)
+            .load(imageUrl)
+            .transition(transitionOptions)
+
+        requestListener?.let { transition.listener(it) }
+
+        transition.into(view)
+    }
 }

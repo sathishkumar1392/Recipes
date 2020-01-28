@@ -14,12 +14,12 @@ import com.humanoo.domain.repository.RecipeRepository
  * Desc : Recipe data use case Implementation
  */
 
-class RecipeUseCasesImpl(private val repo:RecipeRepository):RecipeUseCases {
+class RecipeUseCasesImpl(private val repo: RecipeRepository) : RecipeUseCases {
     override suspend fun getRecipesList(): Result<List<RecipeDomainModel>> {
-        return  repo.getRecipesList()
+        return repo.getRecipesList()
     }
 
     override suspend fun getSearchRecipesList(searchQuery: String): Result<List<RecipeDomainModel>> {
-          return repo.getSearchRecipesList(searchQuery)
+        return repo.getSearchRecipesList(searchQuery)
     }
 }

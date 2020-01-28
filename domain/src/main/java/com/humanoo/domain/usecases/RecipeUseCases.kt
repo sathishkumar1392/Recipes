@@ -16,5 +16,5 @@ import com.humanoo.domain.model.Result
 interface RecipeUseCases {
 
     suspend fun getRecipesList(): Result<List<RecipeDomainModel>>
-    suspend fun getSearchRecipesList(searchQuery:String): Result<List<RecipeDomainModel>>
+    suspend fun getSearchRecipesList(searchQuery: String): Result<List<RecipeDomainModel>>
 }

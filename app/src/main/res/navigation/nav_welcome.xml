@@ -27,10 +27,7 @@
         <action
             android:id="@+id/action_recipe_list"
             app:destination="@id/recipe_details"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+           />
     </fragment>
 
     <fragment
@@ -40,28 +37,8 @@
         tools:layout="@layout/fragment_recipe_details">
 
         <argument
-            android:name="tittle"
-            android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="string" />
-
-        <argument
-            android:name="ingredient"
-            android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="string" />
-
-        <argument
-            android:name="image"
-            android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="string" />
-
-        <argument
-            android:name="webLink"
-            android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="string" />
+            android:name="recipe"
+            app:argType="com.humanoo.recipes.model.RecipeData" />
 
         <action
             android:id="@+id/action_recipe_details"
@@ -70,7 +47,7 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
-            app:popUpToInclusive="true" />
+           />
     </fragment>
 
     <fragment
@@ -84,6 +61,10 @@
             android:defaultValue="@null"
             app:nullable="true"
             app:argType="string" />
+
+        <!--<argument
+            android:name="recipe"
+            app:argType="com.humanoo.recipes.model.RecipeData" />-->
     </fragment>
 
 </navigation>

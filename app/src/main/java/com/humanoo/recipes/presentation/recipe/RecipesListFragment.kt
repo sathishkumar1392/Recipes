@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.humanoo.recipes.R
 import com.humanoo.recipes.databinding.FragmentRecipeListBinding
+import com.humanoo.recipes.extension.waitForTransition
 import com.humanoo.recipes.presentation.recipe.adapter.RecipeItemRecyclerViewAdapter
 import com.humanoo.recipes.presentation.recipe.viewmodel.RecipeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,7 +30,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * RecipesListFragment is handling UI part.
  */
 
-class RecipesListFragment : Fragment(){
+class RecipesListFragment : Fragment() {
 
     lateinit var binding: FragmentRecipeListBinding
     private lateinit var getFragmentContext: Activity
@@ -42,12 +42,16 @@ class RecipesListFragment : Fragment(){
         getFragmentContext = this.requireActivity()
     }
 
-    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         if (!::binding.isInitialized) {
-            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_recipe_list,container,false)
+            binding = FragmentRecipeListBinding.inflate(inflater, container, false)
             binding.viewModel = recipeViewModel
             binding.let {
-                it.adapter =recipeAdapter
+                it.adapter = recipeAdapter
             }
             setUpViewModelObserver()
             initSearchView()
@@ -55,13 +59,17 @@ class RecipesListFragment : Fragment(){
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        waitForTransition(binding.rcyVwRecipeList)
+    }
 
     /**
      * initSearchView method call the search the recipe by
      *  Ingredients method
      * in the presenter
      *
-     * @param query  the search keyword string
+     * @param query the search keyword string
      * communicate with ViewModel
      */
     private fun initSearchView() {
@@ -74,18 +82,22 @@ class RecipesListFragment : Fragment(){
         val closeBtnId: Int = binding.searchViewIngredient.context.resources
             .getIdentifier("android:id/search_close_btn", null, null)
 
-        val closeButton: ImageView = binding.searchViewIngredient.findViewById(closeBtnId) as ImageView
+        val closeButton: ImageView =
+            binding.searchViewIngredient.findViewById(closeBtnId) as ImageView
 
-        binding.searchViewIngredient.setOnClickListener { binding.searchViewIngredient.isIconified = false }
+        binding.searchViewIngredient.setOnClickListener {
+            binding.searchViewIngredient.isIconified = false
+        }
 
-        binding.searchViewIngredient.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.searchViewIngredient.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(newText: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 val search = newText ?: ""
-                if (search.length>=3){
+                if (search.length >= 3) {
                     recipeAdapter.clear()
                     recipeViewModel.loadRecipeSearchList(search)
                 }
@@ -99,23 +111,22 @@ class RecipesListFragment : Fragment(){
         }
     }
 
-
-
     private fun setUpViewModelObserver() {
 
-        //adds the new set of results to the adapter list
-       recipeViewModel.recipeData().run {
-             observe(this@RecipesListFragment, Observer {
-                 recipeAdapter.update(it)
-             })
-       }
+        // adds the new set of results to the adapter list
+        recipeViewModel.recipeData().run {
+            observe(this@RecipesListFragment, Observer(recipeAdapter::update))
+        }
 
         /**
          * displaying error status from viewModel communicate via Observer
          * display the error message
          */
-        recipeViewModel.errorMessage.observe(this, Observer {
-            Toast.makeText(getFragmentContext, it, Toast.LENGTH_SHORT).show()
-        })
+        recipeViewModel.errorMessage.observe(
+            this,
+            Observer {
+                Toast.makeText(getFragmentContext, it, Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 }

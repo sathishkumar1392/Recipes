@@ -7,6 +7,11 @@
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
+
+        <variable
+            name="recipe"
+            type="com.humanoo.recipes.model.RecipeData" />
+
     </data>
 
 
@@ -16,7 +21,7 @@
         android:background="@color/colorBackground">
 
         <ImageView
-            android:id="@+id/ImgView_Poster"
+            android:id="@+id/recipe_thumbnail"
             style="@style/RecipePoster"
             android:layout_width="match_parent"
             android:layout_height="300dp"
@@ -25,14 +30,14 @@
             android:contentDescription="@string/str_recipe_details"
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            app:imageFromUrl="@{recipe.thumbnail}"
+            android:transitionName="@{@string/transition_avatar}"
             app:layout_anchorGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/comicDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -41,15 +46,18 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ImgView_Poster">
+            app:layout_constraintTop_toBottomOf="@+id/recipe_thumbnail">
 
             <TextView
                 style="@style/RecipeDetailsTitle"
                 android:text="@string/str_recipe_name" />
 
             <TextView
-                android:id="@+id/txtView_tittle"
-                style="@style/RecipeDetailsText" />
+                android:id="@+id/recipe_name"
+                style="@style/RecipeDetailsText"
+                android:text="@{recipe.title}"
+                android:transitionName="@{@string/transition_name}"
+                />
 
             <TextView
                 style="@style/RecipeDetailsTitle"
@@ -57,7 +65,9 @@
 
             <TextView
                 android:id="@+id/txtView_ingredient"
-                style="@style/RecipeDetailsText" />
+                style="@style/RecipeDetailsText"
+                android:text="@{recipe.ingredients}"
+                android:transitionName="@{@string/transition_ingredients}"/>
 
             <TextView
                 style="@style/RecipeDetailsTitle"
@@ -66,7 +76,9 @@
             <TextView
                 android:id="@+id/txtView_web_link"
                 style="@style/RecipeDetailsText"
-                android:onClick="@{clickListener}"/>
+                android:text="@{recipe.href}"
+                android:onClick="@{clickListener}"
+                android:transitionName="@{@string/transition_link}"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

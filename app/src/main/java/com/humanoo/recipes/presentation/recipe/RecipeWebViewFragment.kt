@@ -2,7 +2,6 @@ package com.humanoo.recipes.presentation.recipe
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.humanoo.recipes.R
+import com.humanoo.recipes.databinding.FragmentRecipeWebviewBinding
 import kotlinx.android.synthetic.main.fragment_recipe_webview.*
 
 /*
@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_recipe_webview.*
  */
 
 class RecipeWebViewFragment : Fragment() {
+    private lateinit var binding: FragmentRecipeWebviewBinding
     private lateinit var webUrl: String
     private val args by lazy {
         RecipeWebViewFragmentArgs.fromBundle(arguments!!)
@@ -41,16 +42,14 @@ class RecipeWebViewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView: View =
-            inflater.inflate(R.layout.fragment_recipe_webview, container, false)
-        return rootView
+        binding = FragmentRecipeWebviewBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadWebView(webUrl)
     }
-
 
     /**
      * loadWebView method load the webView
@@ -88,12 +87,16 @@ class RecipeWebViewFragment : Fragment() {
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 // Page loading started
-                progress.visibility = View.VISIBLE
+                progress?.let {
+                    progress.visibility = View.VISIBLE
+                }
             }
 
             override fun onPageFinished(view: WebView, url: String) {
                 // Page loading finished
-                progress.visibility = View.GONE
+                progress?.let {
+                    progress.visibility = View.GONE
+                }
             }
         }
     }

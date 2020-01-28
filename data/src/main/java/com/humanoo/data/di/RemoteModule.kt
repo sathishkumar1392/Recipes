@@ -26,11 +26,11 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 
 val NetworkModel = module {
- single { provideRetrofit(get()) }
+    single { provideRetrofit(get()) }
     factory { okHttpClient() }
     factory { provideRecipeService(get()) }
- single { ConnectivityImpl(androidContext()) }.bind(Connectivity::class)
- single {RecipeRepositoryImpl(get(),get())}.bind(RecipeRepository::class)
+    single { ConnectivityImpl(androidContext()) }.bind(Connectivity::class)
+    single { RecipeRepositoryImpl(get(), get()) }.bind(RecipeRepository::class)
 
 }
 
@@ -45,4 +45,5 @@ fun okHttpClient(): OkHttpClient {
     return OkHttpClient().newBuilder().build()
 }
 
-fun provideRecipeService(retrofit: Retrofit):RecipeService = retrofit.create(RecipeService::class.java)
+fun provideRecipeService(retrofit: Retrofit): RecipeService =
+    retrofit.create(RecipeService::class.java)

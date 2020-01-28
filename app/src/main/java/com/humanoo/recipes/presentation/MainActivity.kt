@@ -1,9 +1,8 @@
 package com.humanoo.recipes.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.humanoo.recipes.R
 
 /*
@@ -23,15 +22,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        configureNavController()
-    }
-
-    /**
-     * This function
-     * initiate the host splash fragment
-     * using NavigationController
-     */
-    private fun configureNavController() {
-        navController = findNavController(R.id.nav_host_splash_fragment)
     }
 }

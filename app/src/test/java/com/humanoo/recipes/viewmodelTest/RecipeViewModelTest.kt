@@ -23,16 +23,14 @@ import org.mockito.MockitoAnnotations
  * Desc : 
  */
 
-class RecipeViewModelTest :BaseTest(){
+class RecipeViewModelTest : BaseTest() {
 
     @Mock
     private lateinit var useCase: RecipeUseCases
 
-    @Mock
     private lateinit var recipeListViewModel: RecipeViewModel
 
     private val recipeList = emptyList<RecipeDomainModel>()
-
 
     @Before
     fun init() {
@@ -40,13 +38,12 @@ class RecipeViewModelTest :BaseTest(){
         recipeListViewModel = RecipeViewModel(useCase)
     }
 
-
     @Test
-    fun  loadRecipeList_Success () = runBlocking{
+    fun loadRecipeList_Success() = runBlocking {
         val result = Result.Success(recipeList)
             `when`(useCase.getRecipesList()).thenReturn(result)
             val response = useCase.getRecipesList()
-            Assert.assertEquals(result,response)
+            Assert.assertEquals(result, response)
         }
 
     @Test
@@ -55,9 +52,8 @@ class RecipeViewModelTest :BaseTest(){
         val result = Result.Success(recipeList)
         `when`(useCase.getSearchRecipesList(searchQuery)).thenReturn(result)
         val response = useCase.getSearchRecipesList(searchQuery)
-        Assert.assertEquals(result,response)
+        Assert.assertEquals(result, response)
     }
-
 
     @Test
     fun loadRecipeSearchListTest_Failure() = runBlocking {

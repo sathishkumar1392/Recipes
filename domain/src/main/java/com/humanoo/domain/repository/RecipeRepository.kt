@@ -13,6 +13,6 @@ import com.humanoo.domain.model.Result
  * Desc : RecipeRepository
  */
 interface RecipeRepository {
-     suspend fun getRecipesList(): Result<List<RecipeDomainModel>>
-     suspend fun getSearchRecipesList(searchQuery:String): Result<List<RecipeDomainModel>>
+    suspend fun getRecipesList(): Result<List<RecipeDomainModel>>
+    suspend fun getSearchRecipesList(searchQuery: String): Result<List<RecipeDomainModel>>
 }

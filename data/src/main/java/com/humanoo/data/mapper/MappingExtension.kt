@@ -15,5 +15,5 @@ import com.humanoo.domain.model.RecipeDomainModel
  */
 
 fun Result.toDomain(): RecipeDomainModel {
-    return RecipeDomainModel(href,ingredients,thumbnail,title)
+    return RecipeDomainModel(href, ingredients, thumbnail, title)
 }

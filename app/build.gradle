@@ -6,9 +6,10 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 apply from: "../common/constants.gradle"
 apply from: "../common/dependencies.gradle"
+apply from: "../ktlint.gradle"
 android {
     compileSdkVersion rootProject.compileSdk
-    buildToolsVersion rootProject.buildToolsVersion
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "com.humanoo.recipes"
@@ -39,8 +40,14 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+
     buildTypes {
         debug {
+
+            // To display log and log interceptor
+            buildConfigField "boolean", "LOG", "false"
+            buildConfigField "boolean", "RETROFIT_LOG_INTERCEPTOR", "false"
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -71,7 +78,8 @@ dependencies {
     implementation unitTestingDependencies
     implementation instrumentationTestingDependencies
 
+
     implementation project (":data")
     implementation project (":domain")
-    implementation project (":mvvm")
 }
+

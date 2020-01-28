@@ -20,7 +20,7 @@ import org.junit.runners.model.Statement
  */
 
 @ExperimentalCoroutinesApi
-class CoroutineTestRule: TestRule {
+class CoroutineTestRule : TestRule {
     override fun apply(base: Statement?, description: Description?): Statement =
         object : Statement() {
 

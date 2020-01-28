@@ -1,6 +1,8 @@
 package com.humanoo.recipes.model
 
+import android.os.Parcelable
 import com.humanoo.domain.model.RecipeDomainModel
+import kotlinx.android.parcel.Parcelize
 
 /*
  * Project Name : Recipes
@@ -12,12 +14,14 @@ import com.humanoo.domain.model.RecipeDomainModel
  * Desc : RecipeData Model class
  */
 
-data class RecipeData( val href: String = "",
-                       val ingredients: String = "",
-                       val thumbnail: String = "",
-                       val title: String = "")
+@Parcelize
+data class RecipeData(
+    val href: String = "",
+    val ingredients: String = "",
+    val thumbnail: String = "",
+    val title: String = ""
+) : Parcelable
 
-
-fun RecipeDomainModel.toPresenter():RecipeData{
-    return RecipeData(href,ingredients,thumbnail,title)
+fun RecipeDomainModel.toPresenter(): RecipeData {
+    return RecipeData(href, ingredients, thumbnail, title)
 }

@@ -31,7 +31,7 @@
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"
             app:imageFromUrl="@{recipe.thumbnail}"
-            android:transitionName="@{@string/transition_avatar}"
+            android:transitionName="@{@string/tr}"
             app:layout_anchorGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

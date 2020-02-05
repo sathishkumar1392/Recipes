@@ -1,5 +1,12 @@
 
 # Recipe
+
+A Recipe application  consist of 4 screens:
+ * Splash screen.
+ * A recipe list screen with items containing the title and the image of the recipe.
+ * A recipe details screen with information about the recipe image, title, ingredient list and link that leads to the web.
+ * A web view that will show the webpage of the recipe.
+
 Introduction
 ------------
 The application uses Clean Architecture based on MVVM and Repository patterns. Implemented
@@ -22,13 +29,6 @@ Navigation component manages in-app navigation.
 Koin is used for dependency injection.
 
 Glide is used for image loading.
-
-A sample application  consist of 4 screens:
- * Splash screen.
- * A recipe list screen with items containing the title and the image of the recipe.
- * A recipe details screen with information about the recipe image, title, ingredient list and link that leads to the web.
- * A web view that will show the webpage of the recipe.
-
 
  Libraries Used
  --------------

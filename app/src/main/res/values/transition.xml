@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="transition_avatar">thumbnail</string>
-    <string name="transition_name">title </string>
-    <string name="transition_ingredients">ingredients </string>
-    <string name="transition_link">link </string>
-
-    <string name="simple_transition_avatar">avatar %d</string>
-    <string name="simple_transition_name">name %d</string>
-    <string name="simple_transition_description">description %d</string>
-    <string name="simple_transition_image">image %d</string>
+    <string name="transition_avatar">thumbnail %1$s</string>
+    <string name="transition_name">title %1$s</string>
 
 </resources>

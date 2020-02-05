@@ -29,21 +29,115 @@ class RecipeRepositoryImpl constructor(
         } else return Result.Error("No Internet Connection")
     }
 
-    private suspend fun getRecipesData(): Result<List<RecipeDomainModel>> {
-        try {
-            val response = recipeService.getRecipeList()
-            if (response.isSuccessful) {
-                val result = response.body().let {
-                    it?.results!!.map {
-                        it.toDomain()
-                    }
-                }
-                result.let { return Result.Success(it) }
-            }
-            return Result.Error(("Error occurred during fetching recipes list!"))
-        } catch (e: Exception) {
-            return Result.Error(e.message.toString())
-        }
+    private fun getRecipesData(): Result<List<RecipeDomainModel>> {
+        return Result.Success(
+            listOf(
+                RecipeDomainModel(
+                    "1",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe1"
+                ),
+                RecipeDomainModel(
+                    "2",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe2"
+                ),
+                RecipeDomainModel(
+                    "3",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe3"
+                ),
+                RecipeDomainModel(
+                    "4",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe4"
+                ),
+                RecipeDomainModel(
+                    "5",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe5"
+                ),
+                RecipeDomainModel(
+                    "6",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe6"
+                ),
+                RecipeDomainModel(
+                    "7",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe7"
+                ),
+                RecipeDomainModel(
+                    "8",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe8"
+                ),
+                RecipeDomainModel(
+                    "9",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe9"
+                ),
+                RecipeDomainModel(
+                    "10",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe10"
+                ),
+                RecipeDomainModel(
+                    "11",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe11"
+                ),
+                RecipeDomainModel(
+                    "12",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe12"
+                ),
+                RecipeDomainModel(
+                    "13",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe13"
+                ),
+                RecipeDomainModel(
+                    "14",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe14"
+                ),
+                RecipeDomainModel(
+                    "15",
+                    "",
+                    "sdasdfasdf asgf asdf asdf asdf asd",
+                    "https://images-na.ssl-images-amazon.com/images/I/61IRhkRWTEL._SX466_.jpg",
+                    "Recipe15"
+                )
+            )
+        )
     }
 
 

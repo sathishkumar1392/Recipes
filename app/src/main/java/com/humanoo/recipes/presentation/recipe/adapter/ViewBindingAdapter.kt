@@ -23,12 +23,6 @@ import com.humanoo.recipes.R
  *
  */
 
-@BindingAdapter("image")
-fun bindImageFromUrl(view: ImageView, imageUrl: String? = null) {
-    imageUrl?.let {
-        Glide.with(view.context).load(imageUrl).placeholder(R.drawable.ic_launcher_background).into(view)
-    }
-}
 
 @BindingAdapter("imageFromUrl", "withCrossFade", "requestListener", requireAll = false)
 fun bindImageFromUrl(

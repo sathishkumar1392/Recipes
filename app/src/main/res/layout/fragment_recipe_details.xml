@@ -31,7 +31,7 @@
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"
             app:imageFromUrl="@{recipe.thumbnail}"
-            android:transitionName="@{@string/tr}"
+            android:transitionName="@{@string/transition_avatar(recipe.id)}"
             app:layout_anchorGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
                 android:id="@+id/recipe_name"
                 style="@style/RecipeDetailsText"
                 android:text="@{recipe.title}"
-                android:transitionName="@{@string/transition_name}"
+                android:transitionName="@{@string/transition_name(recipe.id)}"
                 />
 
             <TextView
@@ -67,7 +67,7 @@
                 android:id="@+id/txtView_ingredient"
                 style="@style/RecipeDetailsText"
                 android:text="@{recipe.ingredients}"
-                android:transitionName="@{@string/transition_ingredients}"/>
+                />
 
             <TextView
                 style="@style/RecipeDetailsTitle"
@@ -78,7 +78,7 @@
                 style="@style/RecipeDetailsText"
                 android:text="@{recipe.href}"
                 android:onClick="@{clickListener}"
-                android:transitionName="@{@string/transition_link}"/>
+                />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

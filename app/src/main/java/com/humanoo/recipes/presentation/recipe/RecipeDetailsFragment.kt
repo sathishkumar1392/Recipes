@@ -41,7 +41,7 @@ class RecipeDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recipe = args.recipe
-        binding.run { executePendingBindings() }
+        binding.executePendingBindings()
         onClick()
     }
 

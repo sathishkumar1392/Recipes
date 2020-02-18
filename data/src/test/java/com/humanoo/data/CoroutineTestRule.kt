@@ -13,14 +13,14 @@ import org.junit.runners.model.Statement
  * Project Name : Recipes
  * Created by : R Sathish Kumar - Android Application Developer
  * Created on :14-01-2020 
- * File Name : CoroutineTestRule.kt
- * ClassName : CoroutineTestRule
+ * File Name : CoroutinesTestRule.kt
+ * ClassName : CoroutinesTestRule
  * Module Name : app
  * Desc : 
  */
 
 @ExperimentalCoroutinesApi
-class CoroutineTestRule: TestRule {
+class CoroutinesTestRule : TestRule {
     override fun apply(base: Statement?, description: Description?): Statement =
         object : Statement() {
 

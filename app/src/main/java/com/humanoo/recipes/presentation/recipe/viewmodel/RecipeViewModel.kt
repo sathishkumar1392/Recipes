@@ -37,7 +37,7 @@ class RecipeViewModel constructor(private val useCase: RecipeUseCases) : BaseVie
      *Api request and response Handling method
      * load data.
      */
-    internal fun loadRecipeList() {
+    private fun loadRecipeList() {
         viewModelScope.launch {
             when (val result = useCase.getRecipesList()) {
                 is Result.Success -> {

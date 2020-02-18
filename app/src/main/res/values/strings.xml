@@ -6,7 +6,7 @@
     <string name="str_recipe_details">Recipe Details</string>
     <string name="str_recipe_webView">Recipe WebView</string>
     <string name="str_recipe_name">Recipe Name</string>
-    <string name="str_recipe_desc">Recipe desc</string>
+    <string name="str_recipe_image">Recipe Image</string>
     <string name="str_ingredients">Ingredients</string>
     <string name="str_search_recipe">Search by Ingredients</string>
     <string name="str_recipe_transition_poster">recipePosterTransition</string>

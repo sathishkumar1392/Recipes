@@ -20,5 +20,5 @@ open class BaseTest {
 
     @ExperimentalCoroutinesApi
     @get:Rule
-    val coroutinesTestRule = CoroutineTestRule()
+    val coroutinesTestRule = CoroutinesTestRule()
 }

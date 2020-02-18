@@ -26,7 +26,7 @@ class RecipeDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = android.transition.TransitionInflater.from(context)
-            .inflateTransition(android.R.transition.no_transition)
+            .inflateTransition(android.R.transition.move)
     }
 
     override fun onCreateView(
@@ -41,7 +41,7 @@ class RecipeDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recipe = args.recipe
-        binding.run { executePendingBindings() }
+        binding.executePendingBindings()
         onClick()
     }
 
@@ -49,7 +49,6 @@ class RecipeDetailsFragment : Fragment() {
         binding.clickListener = View.OnClickListener {
             val destination = RecipeDetailsFragmentDirections.actionRecipeDetails(args.recipe.href)
             it.findNavController().navigate(destination)
-
         }
     }
 }

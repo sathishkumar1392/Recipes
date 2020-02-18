@@ -41,10 +41,10 @@ class RecipeViewModelTest : BaseTest() {
     @Test
     fun loadRecipeList_Success() = runBlocking {
         val result = Result.Success(recipeList)
-            `when`(useCase.getRecipesList()).thenReturn(result)
-            val response = useCase.getRecipesList()
-            Assert.assertEquals(result, response)
-        }
+        `when`(useCase.getRecipesList()).thenReturn(result)
+        val response = useCase.getRecipesList()
+        Assert.assertEquals(result, response)
+    }
 
     @Test
     fun loadRecipeSearchListTest_Success() = runBlocking {
@@ -58,9 +58,9 @@ class RecipeViewModelTest : BaseTest() {
     @Test
     fun loadRecipeSearchListTest_Failure() = runBlocking {
         val searchQuery = ""
-            val result = Result.Error("Please add longer Query")
-            `when`(useCase.getSearchRecipesList(searchQuery)).thenReturn(result)
-            val response = Result.Error("Please add longer Query")
-            Assert.assertEquals(result, response)
-        }
+        val result = Result.Error("Please add longer Query")
+        `when`(useCase.getSearchRecipesList(searchQuery)).thenReturn(result)
+        val response = Result.Error("Please add longer Query")
+        Assert.assertEquals(result, response)
+    }
 }

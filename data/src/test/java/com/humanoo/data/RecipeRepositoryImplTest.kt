@@ -4,16 +4,13 @@ import com.humanoo.data.common.Connectivity
 import com.humanoo.data.model.RecipesApiResponseModel
 import com.humanoo.data.repository.RecipeRepositoryImpl
 import com.humanoo.data.repository.RecipeService
-import com.humanoo.domain.model.RecipeDomainModel
 import com.humanoo.domain.model.Result
-import com.humanoo.domain.usecases.RecipeUseCasesImpl
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import retrofit2.Response
@@ -28,7 +25,7 @@ import retrofit2.Response
  * Desc : 
  */
 
-class RecipeRepositoryImplTest:BaseTest() {
+class RecipeRepositoryImplTest : BaseTest() {
 
     @Mock
     private lateinit var recipeService: RecipeService
@@ -40,21 +37,21 @@ class RecipeRepositoryImplTest:BaseTest() {
     private lateinit var repo: RecipeRepositoryImpl
 
     @Before
-    fun init(){
+    fun init() {
         MockitoAnnotations.initMocks(this)
-        repo = RecipeRepositoryImpl(recipeService,connectivity)
+        repo = RecipeRepositoryImpl(recipeService, connectivity)
     }
 
     @Test
     fun getRecipesList_Success() {
-        val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
+        val result = Response.success(RecipesApiResponseModel())
         result.code()
 
         runBlocking {
             `when`(connectivity.isNetworkAvailable()).thenReturn(true)
             `when`(recipeService.getRecipeList()).thenReturn(result)
-            val response  = recipeService.getRecipeList()
-            Assert.assertEquals(result,response)
+            val response = recipeService.getRecipeList()
+            Assert.assertEquals(result, response)
         }
     }
 
@@ -64,7 +61,7 @@ class RecipeRepositoryImplTest:BaseTest() {
         runBlocking {
             `when`(connectivity.isNetworkAvailable()).thenReturn(false)
             val response = Result.Error("No Internet connection")
-            Assert.assertEquals(result,response)
+            Assert.assertEquals(result, response)
         }
     }
 
@@ -72,27 +69,27 @@ class RecipeRepositoryImplTest:BaseTest() {
     @Test
     fun getSearchRecipesListTest_Success() {
         val searchQuery = "test1"
-        val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
+        val result = Response.success(RecipesApiResponseModel())
         result.code()
 
         runBlocking {
             `when`(connectivity.isNetworkAvailable()).thenReturn(true)
             `when`(recipeService.searchRecipesByIngredient(searchQuery)).thenReturn(result)
-            val response  = recipeService.searchRecipesByIngredient(searchQuery)
-            Assert.assertEquals(result,response)
+            val response = recipeService.searchRecipesByIngredient(searchQuery)
+            Assert.assertEquals(result, response)
         }
     }
 
     @Test
     fun getSearchRecipesListTest_Failure() {
         val searchQuery = ""
-        val result = Response.success<RecipesApiResponseModel>(RecipesApiResponseModel())
+        val result = Response.success(RecipesApiResponseModel())
 
         runBlocking {
             `when`(connectivity.isNetworkAvailable()).thenReturn(true)
             `when`(recipeService.searchRecipesByIngredient(searchQuery)).thenReturn(result)
-            val response  = recipeService.searchRecipesByIngredient(searchQuery)
-            Assert.assertEquals(result,response)
+            val response = recipeService.searchRecipesByIngredient(searchQuery)
+            Assert.assertEquals(result, response)
         }
     }
 

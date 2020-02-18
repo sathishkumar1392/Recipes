@@ -1,7 +1,6 @@
 
 # Recipe
-
-A Recipe application  consist of 4 screens:
+A sample application  consist of 4 screens:
  * Splash screen.
  * A recipe list screen with items containing the title and the image of the recipe.
  * A recipe details screen with information about the recipe image, title, ingredient list and link that leads to the web.

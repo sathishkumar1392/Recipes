@@ -32,7 +32,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecipesListFragment : Fragment() {
 
-    lateinit var binding: FragmentRecipeListBinding
+    private lateinit var binding: FragmentRecipeListBinding
     private lateinit var getFragmentContext: Activity
     private val recipeViewModel: RecipeViewModel by viewModel()
     private val recipeAdapter: RecipeItemRecyclerViewAdapter = RecipeItemRecyclerViewAdapter()
@@ -50,9 +50,7 @@ class RecipesListFragment : Fragment() {
         if (!::binding.isInitialized) {
             binding = FragmentRecipeListBinding.inflate(inflater, container, false)
             binding.viewModel = recipeViewModel
-            binding.let {
-                it.adapter = recipeAdapter
-            }
+            binding.adapter = recipeAdapter
             setUpViewModelObserver()
             initSearchView()
         }
@@ -69,7 +67,7 @@ class RecipesListFragment : Fragment() {
      *  Ingredients method
      * in the presenter
      *
-     * @param query the search keyword string
+     * @param: query the search keyword string
      * communicate with ViewModel
      */
     private fun initSearchView() {

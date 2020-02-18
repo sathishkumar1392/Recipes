@@ -7,7 +7,6 @@ import com.humanoo.data.repository.RecipeRepositoryImpl
 import com.humanoo.data.repository.RecipeService
 import com.humanoo.domain.repository.RecipeRepository
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.bind
 import org.koin.dsl.module

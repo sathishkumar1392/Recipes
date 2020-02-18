@@ -5,9 +5,5 @@
     <color name="colorAccent">#ffae00</color>
     <color name="colorBackground">#f7f0e5</color>
     <color name="colorBackground1">#fafafa</color>
-    <color name="colorButton">#0a2031</color>
-    <color name="colorButton1">#fcb000</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="colorTextPrimary">#FFFFFF</color>
-    <color name="colorTextSecondary">#7f1a18</color>
 </resources>

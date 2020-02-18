@@ -39,12 +39,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/str_recipe"
+                app:layoutDescription="@string/str_recipe_image"
                 app:imageFromUrl="@{itemDetails.thumbnail}"
-                android:transitionName="@{@string/transition_avatar}"
+                android:transitionName="@{@string/transition_avatar(itemDetails.href)}"
                 app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:layout_width="0dp"
@@ -68,7 +70,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{itemDetails.title.toString().trim()}"
-                android:transitionName="@{@string/transition_name}"
+                android:transitionName="@{@string/transition_name(itemDetails.href)}"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"

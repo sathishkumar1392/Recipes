@@ -33,7 +33,7 @@ class RecipeRepositoryImpl constructor(
         try {
             val response = recipeService.getRecipeList()
             if (response.isSuccessful) {
-                val result = response.body().let {
+                val result = response.body().let { it ->
                     it?.results!!.map {
                         it.toDomain()
                     }
@@ -57,7 +57,7 @@ class RecipeRepositoryImpl constructor(
         try {
             val response = recipeService.searchRecipesByIngredient(searchQuery)
             if (response.isSuccessful) {
-                val result = response.body().let {
+                val result = response.body().let { it ->
                     it?.results!!.map {
                         it.toDomain()
                     }

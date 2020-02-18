@@ -30,6 +30,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String? = null) {
     }
 }
 
+
 @BindingAdapter("imageFromUrl", "withCrossFade", "requestListener", requireAll = false)
 fun bindImageFromUrl(
     view: ImageView,

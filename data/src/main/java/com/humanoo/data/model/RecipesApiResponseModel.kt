@@ -1,4 +1,5 @@
 package com.humanoo.data.model
+
 import com.google.gson.annotations.SerializedName
 
 /*

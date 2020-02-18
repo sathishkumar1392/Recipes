@@ -16,7 +16,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RecipeDomainModel(
-    val id: String = "",
     val href: String = "",
     val ingredients: String = "",
     val thumbnail: String = "",

@@ -16,7 +16,7 @@ import android.net.ConnectivityManager
  */
 
 @Suppress("DEPRECATION")
-class ConnectivityImpl(private val context: Context) : Connectivity{
+class ConnectivityImpl(private val context: Context) : Connectivity {
     override fun isNetworkAvailable(): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

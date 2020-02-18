@@ -6,7 +6,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
-import com.humanoo.recipes.R
 
 /*
  * Project Name : Recipes
@@ -22,7 +21,6 @@ import com.humanoo.recipes.R
  * whenever the data changes.
  *
  */
-
 
 @BindingAdapter("imageFromUrl", "withCrossFade", "requestListener", requireAll = false)
 fun bindImageFromUrl(

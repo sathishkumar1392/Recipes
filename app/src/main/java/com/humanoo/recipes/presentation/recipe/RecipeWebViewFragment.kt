@@ -10,7 +10,6 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
-import com.humanoo.recipes.R
 import com.humanoo.recipes.databinding.FragmentRecipeWebviewBinding
 import kotlinx.android.synthetic.main.fragment_recipe_webview.*
 

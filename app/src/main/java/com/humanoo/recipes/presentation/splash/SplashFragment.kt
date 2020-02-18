@@ -23,7 +23,7 @@ import com.humanoo.recipes.R
 
 class SplashFragment : Fragment() {
 
-    private val splashViewCount: Long = 1500
+    private val splashViewCount: Long = 1000
 
     override fun onCreateView(
         inflater: LayoutInflater,

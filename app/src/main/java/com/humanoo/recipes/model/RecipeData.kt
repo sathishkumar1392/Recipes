@@ -16,7 +16,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RecipeData(
-    val id: String = "",
     val href: String = "",
     val ingredients: String = "",
     val thumbnail: String = "",
@@ -24,5 +23,5 @@ data class RecipeData(
 ) : Parcelable
 
 fun RecipeDomainModel.toPresenter(): RecipeData {
-    return RecipeData(id, href, ingredients, thumbnail, title)
+    return RecipeData(href, ingredients, thumbnail, title)
 }

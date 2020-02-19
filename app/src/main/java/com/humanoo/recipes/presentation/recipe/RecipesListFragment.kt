@@ -47,13 +47,11 @@ class RecipesListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (!::binding.isInitialized) {
-            binding = FragmentRecipeListBinding.inflate(inflater, container, false)
-            binding.viewModel = recipeViewModel
-            binding.adapter = recipeAdapter
-            setUpViewModelObserver()
-            initSearchView()
-        }
+        binding = FragmentRecipeListBinding.inflate(inflater, container, false)
+        binding.viewModel = recipeViewModel
+        binding.adapter = recipeAdapter
+        setUpViewModelObserver()
+        initSearchView()
         return binding.root
     }
 
